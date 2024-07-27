@@ -8,3 +8,4 @@ console.table([
     typeof undefined,
     typeof symbol
 ]);
+
