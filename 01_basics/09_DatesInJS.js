@@ -30,3 +30,9 @@ console.table([
 ]);
 
 //toLocaleString options
+console.log(new Date().toLocaleString('default',{
+        day:"numeric",
+        weekday:"long",
+        month:"long",
+        year:"numeric",
+}))
