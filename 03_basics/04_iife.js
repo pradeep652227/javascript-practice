@@ -10,4 +10,3 @@
     console.log(`Connection to DB Estd with string ${dbUrl}`);
     return 1;
 })('123123sdfccc');
-
