@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="utf-8">
+    <title>DOM</title>
+</head>
+<style>
+    body {
+        background-color: #121212;
+        color: #fff;
+    }
+</style>
+
+<body>
+    <div id="bodyDiv">
+        <div>
+            <h1 id="firstHeading" class="heading">Learning DOM with Chai Aur Code</h1>
+        </div>
+        <p id="firstPara">learning Javascript from Chai Aur Code youtube channel.
+            <span style="visibility:hidden">From Hitesh Choudhary sir</span>
+        </p>
+    </div>
+</body>
+
+<script>
+    // document.querySelector("#bodyDiv").addEventListener('click', (e) => { console.log('parent node') }, true);
+    // document.querySelector("#firstHeading").addEventListener('click', (e) => { console.log('child-1 node') }, true);
+    // document.querySelector("#firstPara").addEventListener('click', (e) => { console.log('child-2 node') }, false);
+
+    document.querySelector("#bodyDiv").addEventListener('click', (e) => { console.log('parent node') }, false);
+    document.querySelector("#bodyDiv").firstElementChild.addEventListener('click', (e) => { console.log('child-1 node') }, false);
+    document.querySelector("#firstHeading").addEventListener('click', (e) => { console.log('child-11 node') }, true);
+
+    /*That is, check the 3rd argument of addEventListener of parent element to conclude whether overall propagation
+        is Capture or Bubble*/
+</script>
+
+</html>
