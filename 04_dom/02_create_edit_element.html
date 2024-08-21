@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="utf-8">
+    <title>DOM</title>
+</head>
+<style>
+    body {
+        background-color: #121212;
+        color: #fff;
+    }
+</style>
+
+<body>
+    <div id="bodyDiv">
+        <div>
+            <h1 id="firstHeading" class="heading">Learning DOM with Chai Aur Code</h1>
+        </div>
+        <p id="firstPara">learning Javascript from Chai Aur Code youtube channel.
+            <span style="visibility:hidden">From Hitesh Choudhary sir</span>
+        </p>
+        <ul id="firstList">
+            <li>First</li>
+            <li>Second</li>
+            <li>Third</li>
+        </ul>
+    </div>
+</body>
+
+<script>
+    let parent = Array.from(document.querySelector("#firstList"));
+    /*
+        parent.map(li=>{
+            li.style.innerHTML=""
+        })
+    */
+    /*
+         let firstLi=parent.firstElementChild;parent[0]
+         let lastLi=parent.lastElementChild;//parent[parent.size-1]
+ 
+         let parent1=firstLi.parentElement;
+ 
+         let childNodes=parent1.childNodes;
+    */
+
+    let newDiv = document.createElement('div');
+    newDiv.style.backgroundColor = "orange";
+    newDiv.style.padding="10px";
+    newDiv.style.border="2px solid white";
+    newDiv.style.borderRadius="10px";
+    let textContent = document.createTextNode('This is a New Div created by Javascript');
+    newDiv.appendChild(textContent);
+    document.querySelector('body').appendChild(newDiv);
+
+    //remove an element
+    newDiv.remove();
+</script>
+
+</html>
