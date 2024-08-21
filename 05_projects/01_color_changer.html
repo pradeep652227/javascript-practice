@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="utf-8">
+    <title>Color Changer</title>
+</head>
+<style>
+ 
+    #firstHeading{
+        text-align:center;
+    }
+    .btn-clr{
+        width:200px;
+        height:200px;
+        border:2px solid black;
+        display:inline-block;
+        margin-left:10px;
+    }
+    #red{
+        margin-left:-10px;
+    }
+    #btn-clrs-box{
+        max-width:1200px;
+        margin:0 auto;
+    }
+</style>
+
+<body>
+    <div id="bodyDiv">
+        <div>
+            <h1 id="firstHeading" class="heading">Color Changer</h1>
+        </div>
+        <div id="btn-clrs-box">
+            <button class="btn-clr" id="red" name="red"></button>
+            <button class="btn-clr" id="green" name="green"></button>
+            <button class="btn-clr" id="black" name="black"></button>
+            <button class="btn-clr" id="blue" name="blue"></button>
+        </div>
+    </div>
+</body>
+
+<script>
+    const btns=Array.from(document.querySelectorAll(".btn-clr"));
+    btns.map(btn=>{
+        const color=btn.id;
+        console.log(color);
+        btn.style.backgroundColor=color;
+    });
+
+    //clicking a btn changes the background color of the body
+    const btnsParent=btns[0].parentElement;
+    console.log(btnsParent);
+    btnsParent.addEventListener('click', (e)=>{
+            if(e.target.tagName ==='BUTTON')
+            document.body.style.backgroundColor=e.target.id;
+    });
+</script>
+
+</html>
