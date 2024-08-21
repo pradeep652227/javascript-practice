@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="utf-8">
+    <title>Guess The Number</title>
+</head>
+<style>
+ 
+    #guess-number-box{
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+    }
+
+</style>
+
+<body>
+    <div id="bodyDiv">
+        <div id="guess-number-box">
+            <h1 id="firstHeading" class="heading">Guess The Number</h1>
+            <label for="guess-number">Guess A Number Between 1 and 100:</label>
+            <input id="guess-number" type="number">
+            <button id="check-guess">Go!!</button>
+            <p>Guessed Numbers: <span id="guessed-numbers"></span></p>
+            <p>Chances Left: <span id="chances"></span></p>
+        </div>
+    </div>
+</body>
+
+<script>
+        // const correctNum=Math.floor(Math.random()*100+1);
+        const correctNum=99;
+        let chancesLeft=10;
+        document.querySelectorAll("#guess-number-box p span")[1].innerHTML=chancesLeft;
+
+        let previousGuesses=[];
+        function matchNums(){
+                const guessedNum=parseInt(document.querySelector("#guess-number").value);
+                if(guessedNum==correctNum){
+                    window.alert(`Hurrah!! You've Guessed the Correct number`);
+                    location.reload();
+                }
+                chancesLeft--;
+                if(correctNum===guessedNum){
+                    windw.alert(`Hurrah!! You've have guessed the correct number`);
+                    
+                    location.reload();
+                }
+                if(chancesLeft==0){
+                    window.alert(`Sorry!! All 10 Chances Missed`);
+                    location.reload();
+                }
+                previousGuesses.push(guessedNum);
+                console.log(previousGuesses);
+                document.querySelectorAll("#guess-number-box p span")[0].innerHTML=previousGuesses;
+                document.querySelectorAll("#guess-number-box p span")[1].innerHTML=chancesLeft;
+        }
+        document.querySelector("#check-guess").addEventListener('click',()=>matchNums());
+</script>
+
+</html>
