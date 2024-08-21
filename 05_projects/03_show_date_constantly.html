@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="utf-8">
+    <title>Show Date Constantly</title>
+</head>
+<style>
+    /* #firstHeading {
+        text-align: center;
+    } */
+
+    #date-box{
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+    }
+</style>
+
+<body>
+    <div id="bodyDiv">
+        <div id="date-box">
+            <h1 id="firstHeading" class="heading">Today's Date</h1>
+            <p id="date"></p>
+        </div>
+
+    </div>
+</body>
+
+<script>
+    setInterval(() => {
+        const date = document.querySelector("#date");
+        date.innerHTML = (new Date().toLocaleTimeString())
+    }, 1000);
+</script>
+
+</html>
