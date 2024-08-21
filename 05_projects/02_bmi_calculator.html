@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="utf-8">
+    <title>Color Changer</title>
+</head>
+<style>
+ 
+    #firstHeading{
+        text-align:center;
+    }
+
+    #bmi-box{
+        font-size: 1.2em;
+        display:flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+    }
+    .label-input-div{
+        margin-bottom:10px;
+    }
+
+</style>
+
+<body>
+    <div id="bodyDiv">
+        <div>
+            <h1 id="firstHeading" class="heading">Color Changer</h1>
+        </div>
+        <div id="bmi-box">
+            <div class="label-input-div" id="height-box">
+                <label for="height">Height in CM</label>
+                <input id="height" type="number" value="0">
+            </div>
+            <div class="label-input-div" id="weight-box">
+                <label for="weight">Weight in KG</label>
+                <input id="weight" type="number" value="0">
+            </div>
+            
+            <div class="label-input-div">
+                <input readonly id="bmi-value" value="0">
+                <br>
+                <button id="calculate-bmi">Calculate</button>
+            </div>
+
+        </div>
+    </div>
+</body>
+
+<script>
+        function calculateBMI(){
+            const height=Number(document.querySelector("#height").value);
+            const weight=Number(document.querySelector("#weight").value);
+            
+            const bmi=weight/((height*height)/10000);
+
+            document.querySelector("#bmi-value").value=bmi;
+        }
+
+        const calculateBtn=document.querySelector("#calculate-bmi");
+        calculateBtn.addEventListener('click',()=>calculateBMI());
+</script>
+
+</html>
