@@ -1,3 +1,4 @@
+//classes in javascript are just syntactic sugar on functions and prototype
 class User{
     static count=0;
     constructor(username='',email='',password=''){

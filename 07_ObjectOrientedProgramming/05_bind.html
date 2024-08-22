@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="utf-8">
+    <title>Understanding Bind in Javascript</title>
+</head>
+<style>
+    body {
+        background-color: #121212;
+        color: #fff;
+    }
+</style>
+
+<body>
+    <div id="bodyDiv">
+        <div>
+            <h1 id="firstHeading" class="heading">Learning JS with Chai Aur Code</h1>
+        </div>
+        <button id="click-btn">Click Me!!</button>
+    </div>
+</body>
+
+<script>
+    class React {
+        constructor() {
+            this.lib = "React";
+            this.server = "https://localhost:3000";
+            document.querySelector("#click-btn").addEventListener('click', this.handleClick.bind(this));
+        }
+        handleClick() {
+            console.log("Button Clicked");
+            console.log(this.server);
+        }
+    }
+    const react=new React();
+/*
+.bind(this) ensures that 'this' inside callback function refers to the instance of class and not to the button 
+element that the event listener is attached to.
+
+this.handleClick.bind(this)=> creates a new function where 'this' is bound to the instance of the 'react' class or from 
+where it is called.
+
+.call(this,) is used when we want to transfer the reference of execution context of the callee function to the called function.
+useful for borrowing methods from other subjects
+*/
+</script>
+
+</html>
