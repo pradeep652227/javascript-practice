@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="utf-8">
+    <title>Async - AJAX Request</title>
+</head>
+<style>
+    body {
+        background-color: #121212;
+        color: #fff;
+    }
+</style>
+
+<body>
+    <div id="bodyDiv">
+        <div>
+            <h1 id="firstHeading" class="heading">Learning Async JS with Chai Aur Code</h1>
+        </div>
+        <p id="firstPara">learning Javascript from Chai Aur Code youtube channel.
+            <span style="visibility:hidden">From Hitesh Choudhary sir</span>
+        </p>
+    </div>
+</body>
+
+<script>
+    const reqUrl='https://api.freeapi.app/api/v1/public/randomusers?page=1&limit=10';
+    const xhr=new XMLHttpRequest();
+    xhr.open('GET',reqUrl);
+    xhr.onreadystatechange=function (){
+        console.log(this);
+        if(xhr.readyState==4){
+            const data=JSON.parse(this.responseText);
+            console.log(data);
+        }
+    }
+
+    xhr.send();
+
+    /*
+    state status
+    0   client has been created
+    1   open() has been called
+    2   send() has been called
+    3   downloading responseText holds partialText
+    4   the operation is complete
+    */
+</script>
+
+</html>
